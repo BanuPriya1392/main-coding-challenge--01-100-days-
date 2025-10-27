@@ -1,0 +1,86 @@
+
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .primary{
+            display: flex; 
+            justify-content: center;
+            background-color: white;
+            padding: 30px 0px;  
+            width: 40%; 
+            height: 400px; 
+            margin: 150px 450px;
+            padding-right: 90px;
+            font-family: Arial, Helvetica, sans-serif;
+            box-shadow: 0 2px 6px rgba(101, 100, 100, 0.1);
+            border: 1px solid rgb(207, 204, 204);
+            
+        }
+        .primary .class-1{
+           border: 1px solid grey;
+           padding-left: 25px;
+           padding-top: 30px;
+           color: rgb(180, 191, 216);
+           background-color: rgb(2, 35, 106) ;
+           box-shadow: 0 2px 6px rgba(77, 76, 76, 0.1);
+           border: 1px solid rgb(2, 41, 127);
+
+        }
+        .class-2{  
+        padding: 25px;
+        margin-left: 30px;
+        }
+        .class-1 h2 {
+            padding: 0px 10px;
+            margin-bottom: 20px;
+            font-size: 30px;
+            width: 18rem;
+            color: aliceblue;
+        }
+        .class-1 span  {
+            font-size: 14px;
+            padding: 0px 20px;
+        }
+        .class-1 p {
+            padding-left: 10px;
+            padding-bottom: 30px;
+        }
+        .class-2 h2 {
+            font-size: 28px;
+            color: rgb(2, 84, 117);
+        }
+        .class-2 small{
+            font-size: 13px;
+            color: rgb(137, 134, 134);
+        }
+        .class-2 input{
+            height: 40px;
+            width: 307px;
+            margin: 12px 0px;
+            box-shadow: 0 2px 6px rgba(o.1, 0.1, 0.1, 0.1);
+            border-radius: 5px;
+            border: 0;
+            background-color: rgb(243, 243, 243);
+        }
+        .class-2 #textbox{
+            margin: 10px 0px;
+            box-shadow: 0 2px 6px rgba(o.1, 0.1, 0.1, 0.1);
+            border-radius: 5px;
+            border: 0;
+            background-color: rgb(243, 243, 243);
+        }
+        .class-2 button{
+            margin-top: 10px;
+            padding: 12px 35px;
+            box-shadow: 0 2px 9px rgba(o.1, 0.1, 0.1, 0.1);
+            border-radius: 20px;
+            border: 0;
+            background-color: rgb(13, 75, 168);
+            color: white;
+        }
+        .class-1 i{
+            padding-top: 40;
+            margin-left: 30px;
+        }
