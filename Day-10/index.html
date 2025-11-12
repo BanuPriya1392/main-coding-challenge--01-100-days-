@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Blog</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Header styling */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Main container using Flexbox */
+        .main-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        /* Blog posts section */
+        .blog-posts {
+            flex: 2;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            height: fit-content;
+        }
+        
+        /* Blog post card */
+        .post-card {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .post-card h2 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .post-meta {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>My Awesome Blog</h1>
+        <p>Welcome to my corner of the internet</p>
+    </header>
+    
+    <!-- Main Content with Flexbox -->
+    <div class="main-container">
+        <!-- Blog Posts Section -->
+        <div class="blog-posts">
+            <!-- Post 1 -->
+            <article class="post-card">
+                <h2>Getting Started with Web Development</h2>
+                <div class="post-meta">Posted on November 10, 2025 by Banupriya</div>
+                <p>Web development is an exciting journey! In this post, we'll explore the basics of HTML, CSS, and JavaScript. Whether you're a complete beginner or looking to refresh your skills, this guide will help you get started.</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </article>
+            
+            <!-- Post 2 -->
+            <article class="post-card">
+                <h2>Understanding Flexbox Layout</h2>
+                <div class="post-meta">Posted on November 8, 2025 by Banupriya</div>
+                <p>Flexbox is a powerful CSS layout module that makes it easier to design flexible and responsive layouts. Learn how to use display: flex and its properties to create amazing web designs.</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </article>
+            
+            <!-- Post 3 -->
+            <article class="post-card">
+                <h2>Bootstrap 5 Essentials</h2>
+                <div class="post-meta">Posted on November 5, 2025 by Banupriya</div>
+                <p>Bootstrap is the most popular CSS framework for building responsive websites. Discover the essential components and utilities that will speed up your development process.</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </article>
+        </div>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>About Me</h3>
+            <p>Hi! I'm a web developer passionate about creating beautiful and functional websites.</p>
+            
+            <h3 class="mt-4">Categories</h3>
+            <ul class="list-unstyled">
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">CSS Tips</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">Design</a></li>
+            </ul>
+            
+            <h3 class="mt-4">Recent Posts</h3>
+            <ul class="list-unstyled">
+                <li><a href="#">Getting Started</a></li>
+                <li><a href="#">Flexbox Guide</a></li>
+                <li><a href="#">Bootstrap Tips</a></li>
+            </ul>
+        </aside>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 My Awesome Blog. All rights reserved.</p>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
