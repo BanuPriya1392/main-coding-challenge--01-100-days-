@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Contact Form - Day 11</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Simple background color */
+        body {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Form container */
+        .form-box {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header styling */
+        .form-title {
+            color: #ff6b6b;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Flexbox container for form */
+        .form-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Flexbox row for two inputs side by side */
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Form group styling */
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Label styling */
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        /* Input styling */
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Input focus effect */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+
+        /* Textarea height */
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Submit button */
+        .submit-button {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color:white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            transition: all 0.3s;
+        }
+
+        /* Responsive: Stack inputs on small screens */
+        @media (max-width: 576px) {
+            .form-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <!-- Header -->
+        <h2 class="form-title"> Contact Us</h2>
+
+        <!-- Form with Flexbox -->
+        <form class="form-flex">
+            
+            <!-- Row 1: Name and Email -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="abc@example.com" required>
+                </div>
+            </div>
+
+            <!-- Row 2: Phone and Subject -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" placeholder="+1 234 567 8900">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" required>
+                        <option value="">Select Subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Support</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Write your message..." required></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
