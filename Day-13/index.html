@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYAMSATHYAN PHOTOGRAPHIC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f2;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background-image: linear-gradient(135deg, #f9f7f5 0%, #f1ede9 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        header {
+            background-color: #fff;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 6px solid #d4af37;
+            background: linear-gradient(to right, #ffffff, #fefefe);
+        }
+        
+        .header-info h1 {
+            font-size: 2.4rem;
+            color: #222;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+        
+        .header-info h2 {
+            font-size: 1.6rem;
+            color: #d4af37;
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .header-info p {
+            color: #777;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: #222;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-left: 2px solid #d4af37;
+            padding-left: 15px;
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .main-photo-container {
+            background-color: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .photo-frame {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        
+        .photo-frame:hover img {
+            transform: scale(1.05);
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            color: white;
+            padding: 25px;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        .photo-info p {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .like-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        
+        .like-button {
+            background-color: rgba(212, 175, 55, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+            letter-spacing: 0.5px;
+        }
+        
+        .like-button:hover {
+            background-color: rgba(180, 150, 40, 0.95);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .like-button:active {
+            transform: translateY(0);
+        }
+        
+        .like-button.liked {
+            background-color: #a58c5a;
+            box-shadow: 0 4px 10px rgba(165, 140, 90, 0.3);
+        }
+        
+        .like-count {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: white;
+            letter-spacing: 1px;
+        }
+        
+        .photo-thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .thumbnail {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #f5f5f5;
+        }
+        
+        .thumbnail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .thumbnail.active {
+            border: 2px solid #d4af37;
+            transform: translateY(-3px);
+        }
+        
+        .thumbnail-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .thumbnail-info {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .thumbnail-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 400;
+        }
+        
+        .thumbnail-info p {
+            color: #666;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.95rem;
+            border-top: 1px solid #eee;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .photo-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            color: #d4af37;
+            font-weight: 300;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 900px) {
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .photo-frame {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .photo-frame {
+                height: 350px;
+            }
+            
+            .thumbnail {
+                flex-direction: column;
+            }
+            
+            .thumbnail-img {
+                width: 100%;
+                height: 150px;
+            }
+            
+            .photo-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-info">
+                <h1>Banu</h1>
+                <h2>SYAMSATHYAN PHOTOGRAPHIC</h2>
+                <p>Chennai, India</p>
+            </div>
+            <div class="logo">Elegant Portraits</div>
+        </header>
+        
+        <div class="photo-gallery">
+            <div class="main-photo-container">
+                <div class="photo-frame">
+                    <img id="main-photo" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80" alt="Elegant Woman">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3 id="photo-title">Sophisticated Elegance</h3>
+                            <p id="photo-description">Classic portrait showcasing timeless beauty and grace</p>
+                        </div>
+                        <div class="like-section">
+                            <button class="like-button" id="like-btn">
+                                <i class="far fa-heart"></i>
+                                <span>Like</span>
+                            </button>
+                            <div class="like-count">
+                                <span id="like-count">78</span> Likes
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="photo-thumbnails" id="thumbnail-container">
+                <!-- Thumbnails will be generated by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="photo-stats">
+            <div class="stat-item">
+                <div class="stat-number" id="total-likes">0</div>
+                <div class="stat-label">Total Likes</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="total-photos">5</div>
+                <div class="stat-label">Elegant Portraits</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="most-liked">0</div>
+                <div class="stat-label">Most Liked Photo</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 SYAMSATHYAN PHOTOGRAPHIC. Elegance captured in every frame.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Elegant photo data - sophisticated women
+        const photos = [
+            {
+                id: 1,
+                title: "Sophisticated Elegance",
+                description: "Classic portrait showcasing timeless beauty and grace",
+                url: "download (5).jpg",
+                likes: 78,
+                liked: false
+            },
+            {
+                id: 2,
+                title: "Evening Glamour",
+                description: "Elegant woman in formal attire with exquisite jewelry",
+                url: "download (10).jpg",
+                likes: 92,
+                liked: false
+            },
+            {
+                id: 3,
+                title: "Graceful Pose",
+                description: "Refined beauty captured in a moment of quiet elegance",
+                url: "download (1).jpg",
+                likes: 85,
+                liked: false
+            },
+            {
+                id: 4,
+                title: "Classic Beauty",
+                description: "Timeless elegance with subtle sophistication",
+                url: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+                likes: 67,
+                liked: false
+            },
+            {
+                id: 5,
+                title: "Refined Style",
+                description: "Elegant woman with impeccable taste and poise",
+                url: "download (4).jpg",
+                likes: 74,
+                liked: false
+            }
+        ];
+
+        // DOM elements
+        const mainPhoto = document.getElementById('main-photo');
+        const photoTitle = document.getElementById('photo-title');
+        const photoDescription = document.getElementById('photo-description');
+        const likeButton = document.getElementById('like-btn');
+        const likeCount = document.getElementById('like-count');
+        const thumbnailContainer = document.getElementById('thumbnail-container');
+        const totalLikesElement = document.getElementById('total-likes');
+        const totalPhotosElement = document.getElementById('total-photos');
+        const mostLikedElement = document.getElementById('most-liked');
+        
+        let currentPhotoIndex = 0;
+        
+        // Initialize the gallery
+        function initGallery() {
+            // Set initial photo
+            updateMainPhoto(0);
+            
+            // Create thumbnails
+            photos.forEach((photo, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = index === 0 ? 'thumbnail active' : 'thumbnail';
+                thumbnail.dataset.index = index;
+                
+                thumbnail.innerHTML = `
+                    <img class="thumbnail-img" src="${photo.url}" alt="${photo.title}">
+                    <div class="thumbnail-info">
+                        <h4>${photo.title}</h4>
+                        <p>${photo.description}</p>
+                        <p style="margin-top: 5px; color: #d4af37; font-weight: 500;">${photo.likes} Likes</p>
+                    </div>
+                `;
+                
+                thumbnail.addEventListener('click', () => {
+                    updateMainPhoto(index);
+                    setActiveThumbnail(index);
+                });
+                
+                thumbnailContainer.appendChild(thumbnail);
+            });
+            
+            // Set up like button
+            likeButton.addEventListener('click', toggleLike);
+            
+            // Update statistics
+            updateStatistics();
+        }
+        
+        // Update main photo with selected image
+        function updateMainPhoto(index) {
+            const photo = photos[index];
+            mainPhoto.src = photo.url;
+            photoTitle.textContent = photo.title;
+            photoDescription.textContent = photo.description;
+            likeCount.textContent = photo.likes;
+            currentPhotoIndex = index;
+            
+            // Update like button state
+            if (photo.liked) {
+                likeButton.classList.add('liked');
+                likeButton.innerHTML = '<i class="fas fa-heart"></i><span>Liked</span>';
+            } else {
+                likeButton.classList.remove('liked');
+                likeButton.innerHTML = '<i class="far fa-heart"></i><span>Like</span>';
+            }
+        }
+        
+        // Set active thumbnail
+        function setActiveThumbnail(index) {
+            // Remove active class from all thumbnails
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // Add active class to selected thumbnail
+            document.querySelectorAll('.thumbnail')[index].classList.add('active');
+        }
+        
+        // Toggle like status
+        function toggleLike() {
+            const photo = photos[currentPhotoIndex];
+            
+            if (photo.liked) {
+                // Unlike the photo
+                photo.liked = false;
+                photo.likes--;
+                likeButton.classList.remove('liked');
+                likeButton.innerHTML = '<i class="far fa-heart"></i><span>Like</span>';
+            } else {
+                // Like the photo
+                photo.liked = true;
+                photo.likes++;
+                likeButton.classList.add('liked');
+                likeButton.innerHTML = '<i class="fas fa-heart"></i><span>Liked</span>';
+            }
+            
+            // Update like count
+            likeCount.textContent = photo.likes;
+            
+            // Update thumbnail like count
+            document.querySelectorAll('.thumbnail')[currentPhotoIndex].querySelector('p:nth-child(3)').textContent = `${photo.likes} Likes`;
+            
+            // Add a small animation to the like button
+            likeButton.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                likeButton.style.transform = 'scale(1)';
+            }, 200);
+            
+            // Update statistics
+            updateStatistics();
+        }
+        
+        // Update statistics
+        function updateStatistics() {
+            // Calculate total likes
+            const totalLikes = photos.reduce((sum, photo) => sum + photo.likes, 0);
+            totalLikesElement.textContent = totalLikes;
+            
+            // Update total photos
+            totalPhotosElement.textContent = photos.length;
+            
+            // Find most liked photo
+            const mostLiked = Math.max(...photos.map(photo => photo.likes));
+            mostLikedElement.textContent = mostLiked;
+        }
+        
+        // Initialize the gallery when page loads
+        document.addEventListener('DOMContentLoaded', initGallery);
+    </script>
+</body>
+</html>
