@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #222;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.card {
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.search input {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  color: #555;
+  padding: 10px 20px;
+  height: 40px;
+  border-radius: 30px;
+  flex: 1;
+  margin-right: 10px;
+  font-size: 14px;
+}
+.search button {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #555;
+}
+.temp {
+  font-size: 60px;
+  margin-top: 10px;
+}
+.city {
+  font-size: 30px;
+  font-weight: 400;
+}
+.description {
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.details {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 20px;
+}
+.col p {
+  font-size: 14px;
+}
