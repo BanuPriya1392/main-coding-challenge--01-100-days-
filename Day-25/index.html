@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banupriya | Full Stack Developer Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- GLOBAL STYLES --- */
+      :root {
+        --color-primary: #10b981; /* Emerald Green */
+        --color-secondary: #1f2937; /* Dark Slate */
+        --color-card-bg: #374151;
+        --color-text-light: #f3f4f6;
+        --header-height: 64px;
+      }
+
+      body {
+        background-color: var(--color-secondary);
+        color: var(--color-text-light);
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      main section {
+        padding: 5rem 0 3rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--color-primary);
+      }
+
+      .section-subtitle {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #9ca3af;
+        font-size: 1.1rem;
+      }
+
+      /* --- HEADER --- */
+      .main-header {
+        background-color: rgba(31, 41, 55, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+      }
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: var(--header-height);
+      }
+
+      /* Attractive Logo Styling */
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, #10b981, #34d399);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        letter-spacing: -1px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+      .nav-links a {
+        color: var(--color-text-light);
+        text-decoration: none;
+        transition: color 0.3s;
+        font-weight: 500;
+      }
+      .nav-links a:hover {
+        color: var(--color-primary);
+      }
+
+      .contact-button {
+        padding: 0.5rem 1.25rem;
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .contact-button:hover {
+        background-color: var(--color-primary);
+        color: var(--color-secondary);
+      }
+
+      /* --- HERO --- */
+      .hero-section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background:
+          linear-gradient(rgba(31, 41, 55, 0.8), rgba(31, 41, 55, 0.8)),
+          url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+      .hero-content p {
+        font-size: 1.5rem;
+        color: var(--color-primary);
+        font-weight: 300;
+      }
+
+      /* --- ABOUT --- */
+      .about-layout {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: center;
+      }
+      .about-image {
+        width: 100%;
+        border-radius: 15px;
+        border: 4px solid var(--color-primary);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .about-link {
+        display: inline-block;
+        margin-top: 1rem;
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 700;
+        border-bottom: 2px solid transparent;
+        transition: 0.3s;
+      }
+      .about-link:hover {
+        border-bottom: 2px solid var(--color-primary);
+      }
+
+      @media (max-width: 768px) {
+        .about-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- SKILLS --- */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      .skill-card {
+        background: var(--color-card-bg);
+        padding: 2rem;
+        border-radius: 12px;
+        transition: transform 0.3s;
+      }
+      .skill-card:hover {
+        transform: translateY(-5px);
+      }
+      .skill-item {
+        margin-bottom: 1.5rem;
+      }
+      .skill-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+      }
+      .skill-bar {
+        height: 8px;
+        background: #1f2937;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .skill-progress {
+        height: 100%;
+        background: var(--color-primary);
+        transition: width 1s;
+      }
+
+      /* --- PROJECTS --- */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+      .project-card {
+        background: var(--color-card-bg);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        border-color: var(--color-primary);
+      }
+      .project-img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .project-info {
+        padding: 1.5rem;
+        flex-grow: 1;
+      }
+      .tag {
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--color-primary);
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        margin-right: 5px;
+      }
+
+      /* Attractive Project Buttons */
+      .link-group {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .btn-project {
+        flex: 1;
+        text-align: center;
+        padding: 0.6rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .btn-github {
+        background: #1f2937;
+        color: white;
+        border: 1px solid #4b5563;
+      }
+
+      .btn-live {
+        background: var(--color-primary);
+        color: var(--color-secondary);
+      }
+
+      .btn-project:hover {
+        filter: brightness(1.2);
+        transform: translateY(-2px);
+      }
+
+      /* --- CONTACT FORM --- */
+      .contact-content {
+        max-width: 600px;
+        margin: 0 auto;
+        background: var(--color-card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.8rem;
+        background: var(--color-secondary);
+        border: 1px solid #4b5563;
+        border-radius: 6px;
+        color: white;
+        box-sizing: border-box;
+      }
+      .submit-btn {
+        width: 100%;
+        background: var(--color-primary);
+        border: none;
+        padding: 1rem;
+        border-radius: 6px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid #374151;
+        margin-top: 4rem;
+        color: #9ca3af;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="container navbar">
+        <a href="#" class="logo">Banupriya</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact" class="contact-button">Hire Me</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero-section" class="hero-section">
+        <div class="hero-content">
+          <h1>Hi, I'm Banupriya</h1>
+          <p>MERN Stack Developer | Entri Elevate Student</p>
+          <a href="#projects" class="contact-button">View My Work</a>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h2>About Me</h2>
+          <div class="about-layout">
+            <img src="banu.jpg" alt="Banupriya" class="about-image" />
+            <div>
+              <p>
+                I am a passionate
+                <strong>Full Stack Developer</strong> currently undergoing
+                professional training at <strong>Entri Elevate</strong>. I
+                specialize in the MERN stack, turning ideas into functional,
+                beautiful web applications.
+              </p>
+              <p>
+                My core strength lies in writing clean code and creating
+                responsive user interfaces. I love the challenge of building
+                complex platforms like video streaming services and e-commerce
+                stores from scratch.
+              </p>
+              <a href="#contact" class="about-link">Get in Touch &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container">
+          <h2>Technical Expertise</h2>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3>Frontend</h3>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>JavaScript (ES6+)</span><span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>React.js</span><span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>HTML5 / CSS3</span><span>95%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <h3>Backend</h3>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Node.js / Express</span><span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>MongoDB</span><span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <h2>Featured Projects</h2>
+          <p class="section-subtitle">
+            A Showcase of my recent work and technical experiments.
+          </p>
+
+          <div class="card-grid">
+            <div class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=600&q=80"
+                class="project-img"
+                alt="Video Project"
+              />
+              <div class="project-info">
+                <h3>Video Streaming Platform</h3>
+                <p>
+                  A Mini Project featuring custom video players, category
+                  filtering, and a responsive layout similar to YouTube.
+                </p>
+                <div>
+                  <span class="tag">HTML/CSS</span><span class="tag">JS</span>
+                </div>
+                <div class="link-group">
+                  <a
+                    href="https://github.com/BanuPriya1392/miniproject.git"
+                    target="_blank"
+                    class="btn-project btn-github"
+                    >GitHub</a
+                  >
+                  <a
+                    href="https://miniproject-1cfi.vercel.app/"
+                    target="_blank"
+                    class="btn-project btn-live"
+                    >Live Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80"
+                class="project-img"
+                alt="Ecommerce Project"
+              />
+              <div class="project-info">
+                <h3>Sister's Hub E-commerce</h3>
+                <p>
+                  An interactive e-commerce product grid with dynamic filtering
+                  for Electronics, Clothing, and more.
+                </p>
+                <div>
+                  <span class="tag">React</span><span class="tag">Vercel</span>
+                </div>
+                <div class="link-group">
+                  <a
+                    href="https://github.com/BanuPriya1392/main-coding-challenge--01-100-days-.git"
+                    target="_blank"
+                    class="btn-project btn-github"
+                    >GitHub</a
+                  >
+                  <a
+                    href="https://main-coding-challenge-01-100-days-e.vercel.app/"
+                    target="_blank"
+                    class="btn-project btn-live"
+                    >Live Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80"
+                class="project-img"
+                alt="Coding Challenge"
+              />
+              <div class="project-info">
+                <h3>100 Days Coding Challenge</h3>
+                <p>
+                  A repository of UI components and logic challenges built
+                  during my daily coding journey.
+                </p>
+                <div>
+                  <span class="tag">JS</span><span class="tag">UI/UX</span>
+                </div>
+                <div class="link-group">
+                  <a
+                    href="https://github.com/BanuPriya1392/main-coding-challenge--01-100-days-.git"
+                    target="_blank"
+                    class="btn-project btn-github"
+                    >GitHub</a
+                  >
+                  <a
+                    href="https://main-coding-challenge-01-100-days-u.vercel.app/"
+                    target="_blank"
+                    class="btn-project btn-live"
+                    >Live Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=600&q=80"
+                class="project-img"
+                alt="Weather App"
+              />
+              <div class="project-info">
+                <h3>Weather Dashboard</h3>
+                <p>
+                  A real-time weather application fetching data from external
+                  APIs to provide accurate local forecasts.
+                </p>
+                <div>
+                  <span class="tag">JS</span><span class="tag">API</span>
+                </div>
+                <div class="link-group">
+                  <a
+                    href="https://github.com/BanuPriya1392/main-coding-challenge--01-100-days-.git"
+                    target="_blank"
+                    class="btn-project btn-github"
+                    >GitHub</a
+                  >
+                  <a
+                    href="https://main-coding-challenge-01-100-days-m.vercel.app/"
+                    target="_blank"
+                    class="btn-project btn-live"
+                    >Live Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2>Get In Touch</h2>
+          <div class="contact-content">
+            <form>
+              <div class="form-group">
+                <input type="text" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Your Email" required />
+              </div>
+              <div class="form-group">
+                <textarea rows="5" placeholder="Your Message"></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Banupriya | Built with Passion and React</p>
+    </footer>
+  </body>
+</html>
