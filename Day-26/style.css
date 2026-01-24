@@ -1,0 +1,77 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.carousel-container {
+  text-align: center;
+}
+
+.brand-name {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 20px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+.image-frame img {
+  width: 500px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 30px; /* Softer, baby-friendly corners */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.4s ease;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Unique Button Styling */
+.nav-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-btn:hover {
+  background: #333;
+  color: white;
+  transform: scale(1.1);
+}
+
+.nav-btn:active {
+  transform: scale(0.9);
+}
