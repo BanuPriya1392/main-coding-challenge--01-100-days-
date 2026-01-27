@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos Timepieces - Flexbox Demo</title>
+    <style>
+        /* --- GLOBAL RESET --- */
+        /* This removes default browser spacing so our layout is precise */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* --- 1. NAVIGATION BAR (Flexbox: Space Between) --- */
+        .navbar {
+            /* This turns the container into a Flexbox context */
+            display: flex; 
+            
+            /* 'space-between' pushes the Logo to the far left 
+               and the Links to the far right */
+            justify-content: space-between; 
+            
+            /* 'center' ensures the text is vertically aligned in the middle of the black bar */
+            align-items: center; 
+            
+            background-color: #222;
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            /* We also make the list of links a flex container so they sit in a row */
+            display: flex;
+            list-style: none; /* Removes bullet points */
+            gap: 20px; /* Creates equal space between each link */
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37; /* Gold color on hover */
+        }
+
+        /* --- 2. HERO SECTION (Flexbox: Center Everything) --- */
+        .hero {
+            height: 80vh; /* Takes up 80% of the screen height */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            
+            /* Center Everything Magic */
+            display: flex;
+            flex-direction: column; /* Stacks items vertically (Text on top of button) */
+            justify-content: center; /* Centers vertically */
+            align-items: center;    /* Centers horizontally */
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-main {
+            padding: 10px 25px;
+            background-color: #d4af37;
+            color: white;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* --- 3. PRODUCT GRID (Flexbox: Wrap) --- */
+        .products-section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: flex;
+            
+            /* 'wrap' is crucial for responsiveness. 
+               It allows items to drop to the next line if there isn't enough width. */
+            flex-wrap: wrap; 
+            
+            justify-content: center; /* Centers the grid items */
+            gap: 2rem; /* Adds consistent "gutters" between cards */
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            
+            /* Flex Sizing: flex-grow | flex-shrink | flex-basis */
+            /* This tells the card: "Start at 300px wide, but grow to fill empty space if needed." */
+            flex: 1 1 300px; 
+            max-width: 400px; /* Prevents them from getting too huge on big screens */
+        }
+
+        .watch-placeholder {
+            height: 200px;
+            background-color: #eee;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-weight: bold;
+        }
+
+        /* --- 4. FOOTER --- */
+        footer {
+            background-color: #222;
+            color: #888;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        /* Mobile adjustment for smaller screens */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            
+            /* On mobile, we might want the navbar links to stack or hide, 
+               but for this beginner demo, we keep them simple. */
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="logo">CHRONOS</div>
+        <ul class="nav-links">
+            <li><a href="#">Collections</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <h1>Timeless Elegance</h1>
+        <p>Precision engineering meets modern luxury. Discover the new era.</p>
+        <button class="btn-main">Shop Collection</button>
+    </header>
+
+    <!-- PRODUCT GRID -->
+    <section class="products-section">
+        <h2>Featured Timepieces</h2>
+        <p>Crafted for the bold.</p>
+
+        <div class="grid-container">
+            <!-- Card 1 -->
+            <div class="product-card">
+                <img src="BEST WOMEN LUXURY WATCHES ON AMAZON.jpg" alt="The Aviator Watch" class="product-image" width="100%" height="85%">
+                <h3>The Aviator</h3>
+                <p>Designed for high altitudes and precision timing.</p>
+                <p><strong>$450.00</strong></p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="product-card">
+                <img src="Timeless Elegance_ Luxury Watch Style Guide ✨.jpg" alt="The Aviator Watch" class="product-image" width="100%">
+                <h3>The Diver</h3>
+                <p>Water-resistant up to 300m with sapphire crystal.</p>
+                <p><strong>$550.00</strong></p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="product-card">
+                <img src="Fashion watches for women.jpg" alt="The Aviator Watch" class="product-image" width="100%">
+                <h3>The Minimalist</h3>
+                <p>Sleek design for the modern professional.</p>
+                <p><strong>$320.00</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Chronos Timepieces. Built with Flexbox.</p>
+    </footer>
+
+</body>
+</html>

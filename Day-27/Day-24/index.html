@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form with Grid & Validation</title>
+    <style>
+      /* --- 1. UNIQUE GRADIENT BACKGROUND --- */
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        /* Unique Mesh Gradient using layered radial and linear gradients */
+        background-color: #4158d0;
+        background-image:
+          radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+          radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+          radial-gradient(
+            at 100% 0%,
+            hsla(339, 49%, 30%, 1) 0,
+            transparent 50%
+          ),
+          linear-gradient(135deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      /* Glassmorphism Effect for the Container */
+      .contact-form-container {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 600px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
+      h2 {
+        margin-top: 0;
+        color: #1a1a1a;
+        text-align: center;
+        margin-bottom: 25px;
+        font-weight: 700;
+      }
+
+      /* --- 2. CSS GRID LAYOUT --- */
+      .contact-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .full-width {
+        grid-column: span 2;
+      }
+
+      /* --- 3. FORM ELEMENTS --- */
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #444;
+        font-size: 0.9rem;
+      }
+
+      input,
+      textarea {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s,
+          background-color 0.3s;
+        font-family: inherit;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #c850c0;
+        box-shadow: 0 0 0 4px rgba(200, 80, 192, 0.1);
+        background-color: #fff;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      /* Unique Gradient Button */
+      button {
+        background: linear-gradient(135deg, #4158d0 0%, #c850c0 100%);
+        color: white;
+        padding: 14px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.3s,
+          filter 0.3s;
+        margin-top: 10px;
+        box-shadow: 0 4px 15px rgba(200, 80, 192, 0.3);
+      }
+
+      button:hover {
+        filter: brightness(1.1);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(200, 80, 192, 0.4);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      /* --- 4. VALIDATION STYLES --- */
+      input.error,
+      textarea.error {
+        border-color: #dc3545;
+        background-color: #fff8f8;
+      }
+
+      input.success,
+      textarea.success {
+        border-color: #28a745;
+      }
+
+      .error-message {
+        color: #dc3545;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        font-weight: 500;
+        display: none;
+      }
+
+      /* --- 5. RESPONSIVE MEDIA QUERY --- */
+      @media (max-width: 600px) {
+        .contact-form {
+          grid-template-columns: 1fr;
+        }
+
+        .full-width {
+          grid-column: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact-form-container">
+      <h2>Get in Touch</h2>
+      <form class="contact-form" id="form" novalidate>
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input
+            type="text"
+            id="first-name"
+            name="first-name"
+            placeholder="your firstname"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input
+            type="text"
+            id="last-name"
+            name="last-name"
+            placeholder="your surname"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="username@example.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+9 00000-00000"
+          />
+        </div>
+
+        <div class="form-group full-width">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" />
+        </div>
+
+        <div class="form-group full-width">
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+
+        <button type="submit" class="full-width">Send Message</button>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("form");
+        const firstName = document.getElementById("first-name");
+        const lastName = document.getElementById("last-name");
+        const email = document.getElementById("email");
+        const subject = document.getElementById("subject");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          if (validateForm()) {
+            const btn = form.querySelector("button");
+            const originalText = btn.innerText;
+            btn.innerText = "Sending...";
+
+            setTimeout(() => {
+              alert("Success! Your message has been sent.");
+              form.reset();
+              resetStyles();
+              btn.innerText = originalText;
+            }, 1000);
+          }
+        });
+
+        function validateForm() {
+          let isValid = true;
+
+          if (!checkRequired(firstName, "First name is required"))
+            isValid = false;
+          if (!checkRequired(lastName, "Last name is required"))
+            isValid = false;
+          if (!checkEmail(email)) isValid = false;
+          if (!checkRequired(subject, "Subject is required")) isValid = false;
+          if (!checkRequired(message, "Message is required")) isValid = false;
+
+          return isValid;
+        }
+
+        function checkRequired(input, msg) {
+          if (input.value.trim() === "") {
+            showError(input, msg);
+            return false;
+          } else {
+            showSuccess(input);
+            return true;
+          }
+        }
+
+        function checkEmail(input) {
+          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (input.value.trim() === "") {
+            showError(input, "Email is required");
+            return false;
+          } else if (!re.test(input.value.trim())) {
+            showError(input, "Email is not valid");
+            return false;
+          } else {
+            showSuccess(input);
+            return true;
+          }
+        }
+
+        function showError(input, message) {
+          const formGroup = input.parentElement;
+          input.classList.add("error");
+          input.classList.remove("success");
+
+          let errorDisplay = formGroup.querySelector(".error-message");
+          if (!errorDisplay) {
+            errorDisplay = document.createElement("div");
+            errorDisplay.className = "error-message";
+            formGroup.appendChild(errorDisplay);
+          }
+          errorDisplay.innerText = message;
+          errorDisplay.style.display = "block";
+        }
+
+        function showSuccess(input) {
+          const formGroup = input.parentElement;
+          input.classList.add("success");
+          input.classList.remove("error");
+
+          const errorDisplay = formGroup.querySelector(".error-message");
+          if (errorDisplay) {
+            errorDisplay.style.display = "none";
+          }
+        }
+
+        function resetStyles() {
+          const inputs = form.querySelectorAll("input, textarea");
+          inputs.forEach((input) => {
+            input.classList.remove("success", "error");
+            const formGroup = input.parentElement;
+            const errorDisplay = formGroup.querySelector(".error-message");
+            if (errorDisplay) errorDisplay.style.display = "none";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

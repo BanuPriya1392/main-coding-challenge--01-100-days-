@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation Drawer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #808000 0%, #556b2f 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Header */
+      .header {
+        background: white;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .header h1 {
+        color: #556b2f;
+        font-size: 1.8rem;
+      }
+
+      .menu-toggle {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #556b2f;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .menu-toggle:hover {
+        background: #f0f0f0;
+      }
+
+      /* Main Content */
+      .main-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .main-content h2 {
+        color: #556b2f;
+        margin-bottom: 1rem;
+      }
+
+      .main-content p {
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      /* Navigation Drawer */
+      .nav-drawer {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 300px;
+        height: 100vh;
+        background: white;
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-drawer.active {
+        left: 0;
+      }
+
+      .drawer-header {
+        background: linear-gradient(135deg, #808000 0%, #556b2f 100%);
+        padding: 1.5rem;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .drawer-header h3 {
+        font-size: 1.5rem;
+      }
+
+      .close-drawer {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .close-drawer:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .nav-links {
+        flex: 1;
+        padding: 1rem 0;
+        overflow-y: auto;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        color: #333;
+        text-decoration: none;
+        transition: background 0.3s;
+        border-left: 4px solid transparent;
+      }
+
+      .nav-item:hover {
+        background: #f5f5f5;
+        border-left-color: #808000;
+      }
+
+      .nav-item.active {
+        background: #f0f5e6;
+        border-left-color: #556b2f;
+        color: #556b2f;
+        font-weight: 600;
+      }
+
+      .nav-item i {
+        margin-right: 1rem;
+        font-size: 1.2rem;
+        width: 20px;
+        text-align: center;
+      }
+
+      .drawer-footer {
+        padding: 1rem 1.5rem;
+        background: #f8f9fa;
+        border-top: 1px solid #eee;
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #808000 0%, #556b2f 100%);
+        border-radius: 50%;
+        margin-right: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      /* Overlay */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+        z-index: 999;
+      }
+
+      .overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Feature Box */
+      .feature-box {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background: #f8f9f0;
+        border-radius: 8px;
+        border-left: 4px solid #808000;
+      }
+
+      .feature-box h3 {
+        color: #556b2f;
+        margin-bottom: 1rem;
+      }
+
+      .feature-box ul {
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+      }
+
+      .feature-box li {
+        margin-bottom: 0.5rem;
+        color: #555;
+      }
+
+      /* Badge */
+      .badge {
+        margin-left: auto;
+        background: #808000;
+        color: white;
+        padding: 0.2rem 0.5rem;
+        border-radius: 10px;
+        font-size: 0.8rem;
+      }
+
+      /* User Info Text */
+      .user-name {
+        font-weight: 600;
+        color: #333;
+      }
+
+      .user-role {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-drawer {
+          width: 280px;
+          left: -280px;
+        }
+
+        .container {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Navigation Drawer -->
+    <nav class="nav-drawer" id="navDrawer">
+      <div class="drawer-header">
+        <h3>Navigation Menu</h3>
+        <button class="close-drawer" id="closeDrawer">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="nav-links">
+        <a href="#home" class="nav-item active" data-page="home">
+          <i class="fas fa-home"></i> Home
+        </a>
+        <a href="#profile" class="nav-item" data-page="profile">
+          <i class="fas fa-user"></i> Profile
+        </a>
+        <a href="#messages" class="nav-item" data-page="messages">
+          <i class="fas fa-envelope"></i> Messages
+          <span class="badge">3</span>
+        </a>
+        <a href="#settings" class="nav-item" data-page="settings">
+          <i class="fas fa-cog"></i> Settings
+        </a>
+        <a href="#analytics" class="nav-item" data-page="analytics">
+          <i class="fas fa-chart-bar"></i> Analytics
+        </a>
+        <a href="#files" class="nav-item" data-page="files">
+          <i class="fas fa-folder"></i> Files
+        </a>
+        <a href="#help" class="nav-item" data-page="help">
+          <i class="fas fa-question-circle"></i> Help & Support
+        </a>
+      </div>
+
+      <div class="drawer-footer">
+        <div class="user-info">
+          <div class="user-avatar">JD</div>
+          <div>
+            <div class="user-name">Banu</div>
+            <div class="user-role">Administrator</div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+      <header class="header">
+        <h1>Navigation Drawer</h1>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </header>
+
+      <main class="main-content">
+        <h2 id="pageTitle">Home</h2>
+        <p id="pageContent">
+          Welcome to the navigation drawer! Click the menu button in the header
+          to open the navigation drawer. You can also click outside the drawer
+          or press the ESC key to close it.
+        </p>
+        <p>
+          This drawer is built using pure JavaScript, HTML, and CSS. It features
+          smooth animations, responsive design, and a clean modern interface
+          with an olive green color theme.
+        </p>
+        <div class="feature-box">
+          <h3>Features:</h3>
+          <ul>
+            <li>Smooth slide-in animation</li>
+            <li>Click outside to close</li>
+            <li>ESC key support</li>
+            <li>Responsive design</li>
+            <li>Active page highlighting</li>
+            <li>Accessible navigation</li>
+            <li>Olive green color theme</li>
+          </ul>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      class NavigationDrawer {
+        constructor() {
+          this.drawer = document.getElementById("navDrawer");
+          this.overlay = document.getElementById("overlay");
+          this.menuToggle = document.getElementById("menuToggle");
+          this.closeDrawer = document.getElementById("closeDrawer");
+          this.navItems = document.querySelectorAll(".nav-item");
+          this.pageTitle = document.getElementById("pageTitle");
+          this.pageContent = document.getElementById("pageContent");
+
+          this.init();
+        }
+
+        init() {
+          // Event listeners
+          this.menuToggle.addEventListener("click", () => this.openDrawer());
+          this.closeDrawer.addEventListener("click", () =>
+            this.closeDrawerFn()
+          );
+          this.overlay.addEventListener("click", () => this.closeDrawerFn());
+
+          // Navigation item clicks
+          this.navItems.forEach((item) => {
+            item.addEventListener("click", (e) => {
+              e.preventDefault();
+              const page = item.getAttribute("data-page");
+              this.setActivePage(page);
+              this.updateContent(page);
+              this.closeDrawerFn();
+            });
+          });
+
+          // ESC key support
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+              this.closeDrawerFn();
+            }
+          });
+
+          // Close on window resize (optional, for mobile)
+          window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) {
+              this.closeDrawerFn();
+            }
+          });
+        }
+
+        openDrawer() {
+          this.drawer.classList.add("active");
+          this.overlay.classList.add("active");
+          document.body.style.overflow = "hidden"; // Prevent scrolling
+        }
+
+        closeDrawerFn() {
+          this.drawer.classList.remove("active");
+          this.overlay.classList.remove("active");
+          document.body.style.overflow = ""; // Restore scrolling
+        }
+
+        setActivePage(page) {
+          this.navItems.forEach((item) => {
+            item.classList.remove("active");
+            if (item.getAttribute("data-page") === page) {
+              item.classList.add("active");
+            }
+          });
+        }
+
+        updateContent(page) {
+          const contentMap = {
+            home: {
+              title: "Home",
+              content:
+                "Welcome to the Home page! This is the main dashboard where you can get an overview of all activities with our beautiful olive green theme.",
+            },
+            profile: {
+              title: "Profile",
+              content:
+                "This is your Profile page. Here you can update your personal information, change your password, and manage account settings in the olive green interface.",
+            },
+            messages: {
+              title: "Messages",
+              content:
+                "You have 3 new messages. Check your inbox for important updates and notifications in our stylish olive green themed messaging system.",
+            },
+            settings: {
+              title: "Settings",
+              content:
+                "Customize your experience with various settings options. Adjust preferences, notifications, and display options in our olive green themed settings panel.",
+            },
+            analytics: {
+              title: "Analytics",
+              content:
+                "View detailed analytics and reports about your usage patterns, performance metrics, and activity insights presented in olive green charts.",
+            },
+            files: {
+              title: "Files",
+              content:
+                "Access and manage all your uploaded files. Organize documents, images, and other media in one place with our olive green file manager.",
+            },
+            help: {
+              title: "Help & Support",
+              content:
+                "Need assistance? Find tutorials, documentation, and contact support for help with any issues in our olive green themed help center.",
+            },
+          };
+
+          if (contentMap[page]) {
+            this.pageTitle.textContent = contentMap[page].title;
+            this.pageContent.textContent = contentMap[page].content;
+          }
+        }
+      }
+
+      // Initialize the navigation drawer when the page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        new NavigationDrawer();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+/* General Body and Layout */
+body {
+    font-family: 'Poppins', sans-serif; /* A more modern font */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Stronger, more attractive shadow */
+    width: 100%;
+    max-width: 450px;
+    transition: transform 0.3s ease-in-out;
+}
+
+h1 {
+    text-align: center;
+    color: #4a4e69;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Input and Button Group */
+.input-group {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+#taskInput {
+    flex-grow: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px 0 0 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#taskInput:focus {
+    border-color: #588157; /* Highlight on focus */
+    box-shadow: 0 0 5px rgba(88, 129, 87, 0.5);
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #588157; /* Earthy green color */
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #3a5a40;
+}
+
+button:active {
+    transform: scale(0.98); /* Little press effect */
+}
+
+/* Task List */
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    border-left: 5px solid #a3b18a; /* Accent color bar */
+    transition: all 0.3s;
+}
+
+#taskList li:hover {
+    background: #e9ecef;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Completed Task Style */
+#taskList li.completed {
+    text-decoration: line-through;
+    color: #888;
+    background: #eef2e6;
+    border-left: 5px solid #d8e2dc;
+    opacity: 0.8;
+}
+
+/* Delete Button */
+.delete-btn {
+    background: none;
+    border: none;
+    color: #e63946; /* Strong red color */
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.3s;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    color: #c9184a;
+    transform: rotate(5deg);
+}

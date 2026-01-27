@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartNotes | Wine Red Edition</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Radiant Wine Red Palette */
+        --primary: #800020; /* Deep Burgundy */
+        --primary-light: #a52a2a; /* Radiant Red */
+        --primary-glow: rgba(128, 0, 32, 0.1);
+        --bg: #fdfaf9; /* Soft Cream/Champagne */
+        --card-bg: #ffffff;
+        --text-main: #2d1b1b; /* Dark chocolate brown/black */
+        --text-muted: #7d6e6e;
+        --danger: #b22222;
+        --warning: #d2691e;
+      }
+
+      * {
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text-main);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .app-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        padding: 2.5rem;
+      }
+
+      /* --- Header Section --- */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 2rem;
+        letter-spacing: -1px;
+      }
+      h1 span {
+        color: var(--primary);
+      }
+
+      .search-container input {
+        padding: 0.8rem 1.5rem;
+        border-radius: 12px;
+        border: 1.5px solid #ece0de;
+        width: 320px;
+        outline: none;
+        background: var(--card-bg);
+        transition: all 0.3s ease;
+      }
+
+      .search-container input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px var(--primary-glow);
+      }
+
+      /* --- Main Layout --- */
+      main {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      @media (max-width: 950px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+        .search-container input {
+          width: 100%;
+        }
+      }
+
+      /* --- Sidebar Editor --- */
+      .editor-card {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px -5px rgba(80, 0, 32, 0.08);
+        position: sticky;
+        top: 2rem;
+        border: 1px solid #f2e9e7;
+      }
+
+      .editor-card h3 {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+      }
+
+      .editor-card input,
+      .editor-card textarea {
+        width: 100%;
+        margin-bottom: 1.2rem;
+        border: 1.5px solid #eee5e3;
+        border-radius: 10px;
+        padding: 1rem;
+        font-size: 0.95rem;
+        outline: none;
+        transition: border 0.3s;
+      }
+
+      .editor-card textarea {
+        min-height: 150px;
+      }
+      .editor-card input:focus,
+      .editor-card textarea:focus {
+        border-color: var(--primary);
+      }
+
+      #addBtn {
+        width: 100%;
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          background 0.2s;
+      }
+
+      #addBtn:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+      }
+
+      /* --- Notes Grid --- */
+      .notes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.8rem;
+      }
+
+      .note-card {
+        background: white;
+        padding: 1.8rem;
+        border-radius: 20px;
+        border-top: 6px solid var(--primary);
+        box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.04);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+
+      .note-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 30px -10px rgba(80, 0, 32, 0.15);
+      }
+
+      .note-card h3 {
+        margin: 0 0 1rem 0;
+        font-size: 1.3rem;
+        color: var(--primary);
+      }
+
+      .note-card p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.7;
+        margin: 0;
+        flex-grow: 1;
+        white-space: pre-wrap;
+      }
+
+      /* --- Actions --- */
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.8rem;
+        margin-top: 2rem;
+        padding-top: 1.2rem;
+        border-top: 1px solid #f8efee;
+      }
+
+      .actions button {
+        padding: 0.6rem 1.1rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+      }
+
+      .edit-btn {
+        background: #fff1f1;
+        color: var(--primary-light);
+      }
+      .delete-btn {
+        background: #fdf2f2;
+        color: var(--danger);
+      }
+      .actions button:hover {
+        filter: brightness(0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <header>
+        <h1>Smart<span>Notes</span></h1>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Find a note..." />
+        </div>
+      </header>
+
+      <main>
+        <aside class="editor-section">
+          <div class="editor-card">
+            <h3>Capture your thoughts</h3>
+            <input type="text" id="noteTitle" placeholder="Title" />
+            <textarea
+              id="noteText"
+              placeholder="What's on your mind..."
+            ></textarea>
+            <button id="addBtn">Save Note</button>
+          </div>
+        </aside>
+
+        <section class="notes-grid" id="notesContainer"></section>
+      </main>
+    </div>
+
+    <script>
+      const noteTitle = document.getElementById("noteTitle");
+      const noteText = document.getElementById("noteText");
+      const addBtn = document.getElementById("addBtn");
+      const notesContainer = document.getElementById("notesContainer");
+      const searchInput = document.getElementById("searchInput");
+
+      let notes = JSON.parse(localStorage.getItem("wineNotes")) || [];
+      renderNotes();
+
+      addBtn.addEventListener("click", () => {
+        const title = noteTitle.value.trim();
+        const content = noteText.value.trim();
+
+        if (title && content) {
+          const newNote = { id: Date.now(), title, content };
+          notes.push(newNote);
+          saveAndRender();
+          clearInputs();
+        }
+      });
+
+      searchInput.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase();
+        const filtered = notes.filter(
+          (n) =>
+            n.title.toLowerCase().includes(query) ||
+            n.content.toLowerCase().includes(query),
+        );
+        renderNotes(filtered);
+      });
+
+      function deleteNote(id) {
+        notes = notes.filter((n) => n.id !== id);
+        saveAndRender();
+      }
+
+      function editNote(id) {
+        const note = notes.find((n) => n.id === id);
+        noteTitle.value = note.title;
+        noteText.value = note.content;
+        notes = notes.filter((n) => n.id !== id);
+        saveAndRender();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function renderNotes(data = notes) {
+        notesContainer.innerHTML = "";
+        if (data.length === 0) {
+          notesContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); margin-top: 4rem;">Your wine cellar of notes is empty.</p>`;
+          return;
+        }
+
+        data.forEach((note) => {
+          const card = document.createElement("div");
+          card.className = "note-card";
+          card.innerHTML = `
+                <h3>${note.title}</h3>
+                <p>${note.content}</p>
+                <div class="actions">
+                    <button class="edit-btn" onclick="editNote(${note.id})">Edit</button>
+                    <button class="delete-btn" onclick="deleteNote(${note.id})">Delete</button>
+                </div>
+            `;
+          notesContainer.appendChild(card);
+        });
+      }
+
+      function saveAndRender() {
+        localStorage.setItem("wineNotes", JSON.stringify(notes));
+        renderNotes();
+      }
+
+      function clearInputs() {
+        noteTitle.value = "";
+        noteText.value = "";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+
+.listing-card .img-wrapper {
+            height: 250px; 
+            overflow: hidden;
+            position: relative; 
+            border-radius: 12px; 
+        }
+
+        .listing-card .card-img-top {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.3s ease;
+        }
+
+        .listing-card:hover .card-img-top {
+            transform: scale(1.05); 
+        }
+
+        .badge-favourite {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: white;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .icon-heart {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: white; 
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .listing-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .listing-details {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 400;
+        }
+
+        .listing-price {
+            font-weight: 700;
+            color: #212529;
+            margin-right: 0.5rem;
+        }
+
+        .listing-rating {
+            font-weight: 600;
+            color: #555;
+        }
+        .listing-rating i {
+            color: #FF5A5F; 
+        }

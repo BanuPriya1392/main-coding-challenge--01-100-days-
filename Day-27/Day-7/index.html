@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bites Food Store - Responsive Design</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand logo-text" href="#">BITESFOOD <span class="text-secondary fw-normal fs-6">STORE</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">SHOP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">MENU</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">BLOG</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">CONTACT US</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">GALLERY</a></li>
+                </ul>
+                <form class="d-flex">
+                    <a class="nav-link search-icon" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.088.118l3.43 3.43a1 1 0 0 0 1.415-1.414l-3.43-3.43a1 1 0 0 0-.118-.088m-5.442 1.398a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11"/></svg></a>
+                    <button class="btn btn-outline-warning ms-3 custom-enquiry-btn" type="submit">ENQUIRY</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-white d-flex align-items-center justify-content-center text-center">
+        <div class="overlay"></div>
+        <div class="container z-1">
+            <p class="mb-2 welcome-text">welcome to our delicious corner.</p>
+            <h1 class="display-3 fw-bold mb-4 hero-title">BEHIND THE DISHES</h1>
+            <p class="lead mb-4 px-lg-5 hero-subtitle">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+            <a href="#" class="btn btn-warning btn-lg learn-more-btn">Learn More</a>
+        </div>
+    </header>
+
+    <section class="about-us py-5 bg-black text-white text-center">
+        <div class="container">
+            <p class="small-title mb-2">special moments</p>
+            <h2 class="display-5 mb-5 section-title">ABOUT US</h2>
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="image-box">
+                        <img src="https://i.pinimg.com/736x/81/dd/7c/81dd7caabe0cbaa3288452ad2f54c0b1.jpg" class="img-fluid" alt="Deliciously plated dish"> </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-center">
+                    <div class="text-content p-4 p-md-0">
+                        <p class="taste-perception mb-2">Taste perception</p>
+                        <h3 class="fw-bold mb-3 about-us-title">TRADITIONAL <br>& MODERN</h3>
+                        <p class="about-us-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem totum rem aperiam eaque illa.</p>
+                        <a href="#" class="btn btn-warning read-more-btn">READ MORE</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="image-box">
+                        <img src="https://i.pinimg.com/1200x/69/72/5d/69725d6cceeb8d30bac1d2cdeebfc4f5.jpg" class="img-fluid" alt="Chef working in a kitchen"> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="m-0 border-secondary">
+
+    <section class="our-special py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row g-0 align-items-center">
+                <div class="col-lg-5">
+                    <div class="menu-image-box">
+                        <img src="https://i.pinimg.com/1200x/5d/36/ea/5d36eab5a0b4a603e2e5653e7312a2af.jpg" class="img-fluid menu-main-img" alt="Elegant restaurant interior"> </div>
+                </div>
+                <div class="col-lg-7 menu-list-col p-4 p-md-5">
+                    <p class="our-healthy-food mb-2">our healthy food</p>
+                    <h2 class="display-5 fw-bold mb-4 section-title">OUR SPECIAL</h2>
+
+                    <div class="d-flex justify-content-between align-items-start menu-item mb-3 pb-2">
+                        <div>
+                            <h4 class="item-name mb-0">FINES TARTARE STEAK</h4>
+                            <p class="item-desc mb-0">Sed ut perspiciatis unde omnis iste natus</p>
+                        </div>
+                        <span class="item-price">$50</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-start menu-item mb-3 pb-2">
+                        <div>
+                            <h4 class="item-name mb-0">CREAMY CHICKEN SOUP</h4>
+                            <p class="item-desc mb-0">Sed ut perspiciatis unde omnis iste natus</p>
+                        </div>
+                        <span class="item-price">$60</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-start menu-item mb-3 pb-2">
+                        <div>
+                            <h4 class="item-name mb-0">BOILED EGGS ON TOAST</h4>
+                            <p class="item-desc mb-0">Sed ut perspiciatis unde omnis iste natus</p>
+                        </div>
+                        <span class="item-price">$120</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-start menu-item mb-3 pb-2">
+                        <div>
+                            <h4 class="item-name mb-0">BEST ROASTED RUMSTEAK</h4>
+                            <p class="item-desc mb-0">Sed ut perspiciatis unde omnis iste natus</p>
+                        </div>
+                        <span class="item-price">$150</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-start menu-item mb-4 pb-2">
+                        <div>
+                            <h4 class="item-name mb-0">RISOTTO & MUSHROOMS</h4>
+                            <p class="item-desc mb-0">Sed ut perspiciatis unde omnis iste natus</p>
+                        </div>
+                        <span class="item-price">$90</span>
+                    </div>
+                    
+                    <a href="#" class="btn btn-warning mt-3 view-more-btn">VIEW MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

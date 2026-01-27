@@ -1,0 +1,248 @@
+
+ *{
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        font-family: 'poppins',sans-serif;
+    }
+    .main{
+        display: flex;
+    }
+    .primary{
+        padding: 20px;
+    }
+    .secondary{
+        display: flex;
+        justify-content:space-around;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .primary .girldp{
+        border: 0;
+        border-radius: 100%;
+        height: 100px;
+        width: 33%;
+        margin-left: 90px;
+        margin-top: 20px;
+    }
+    #user{
+        padding: 5px 55px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    small{
+        padding-left: 5.5rem;
+    }
+    .primary .follow{
+        display: flex;
+        align-items:center;
+        justify-content: space-around;
+        margin-top: 1rem;
+        font-size: 14px;
+    }
+    .primary .ff{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        padding-left: 15px;
+        margin-top: 0.5rem;
+        margin-bottom: 25px;
+    }
+    .ff span{
+        padding: 0 59px;
+    }
+    .primary h4{
+        margin-left: 15px;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    .primary .head{
+        margin-left: 15px;
+        font-size: 13.8px;
+    }
+    .primary .light{
+        margin-top: 20px;
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+    .primary .highlights{
+        margin-left: 2px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .highlights button{
+        border: 1px solid gray;
+        border-radius: 50%;
+        font-size: 25px;
+        height: 60px;
+        width: 60px;
+        background-color: rgb(228, 226, 226);
+    }
+    .highlights img{
+        border: 0;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        padding: 3px;
+    }
+    .name{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 13px;
+        margin-left: 10px;
+        margin-bottom: 30px;
+    }
+    .feed{
+        margin-left: 12px;
+    }
+    .feed i{
+        margin-right: 15px;
+        font-size: 20px;
+        padding-bottom: 20px;
+    }
+    .feed a{
+        font-size: 15.5px;
+        color: black;
+        font-weight: 550;
+
+    }
+    .logout{
+        margin-left: 12px;
+        margin-top: 20px;
+    }
+     .logout i{
+        margin-right: 15px;
+        font-size: 20px;
+        padding-bottom: 20px;
+    }
+    .logout a{
+        font-size: 16px;
+        color: black;
+        font-weight: 600;
+    }
+    .container{
+        border: 0;
+        padding: 20px;
+        margin: 20px 20px;
+        width: 100%;
+        background-color: #f7f3f3;
+        border-radius: 20px;
+    }
+    .box1{
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+    }
+    .box1 .search{
+        padding: 5px 20px;
+        padding-right: 100px;
+        border-radius: 20px;
+        border: 0;
+        color: rgb(70, 66, 66);
+        background-color: white;
+    }
+    .search input{
+        border: 0;
+        color: rgb(70, 66, 66);
+        font-size: 15px;
+        padding: 5px;
+    }
+    .createpost i{
+        font-size: 21px;
+        padding: 0 10px;
+    }
+    .createpost button{
+        border: 0;
+        border-radius: 30px;
+        background: linear-gradient(to right,rgb(234, 159, 67),rgb(251, 49, 49),rgb(238, 43, 163));
+        padding: 10px 30px;
+    }
+    h3{
+        margin-top: 10px;
+        padding: 20px 5px;
+        font-size: 30px;
+    }
+    .stories img{
+        border: 4px solid rgb(242, 118, 23);
+        border-radius: 50%;
+        object-fit: cover;
+        height: 95px;
+        width: 90px;
+        padding: 3px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .post-section{
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 30px;
+    }
+    .postsection-2{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .slide{
+        height: 350px;
+        width: 320px;
+        padding: 25px 10px;
+        border: 1px solid rgb(217, 216, 216);
+        border-radius: 25px;
+        background-color: white;
+        box-shadow: 0 2px 6px rgba(101, 100, 100, 0.1);
+    }
+    .top{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+    }
+    .top img{
+        border: 0;
+        border-radius: 50%;
+        height: 45px;
+        width: 45px;
+        margin-right: 10px;
+        padding: 3px;
+    }
+    #boy{
+       height: 200px;
+       width: 320px;
+       border-radius: 20px; 
+    }
+    .top p{
+       font-size: 15px;
+       padding-right: 150px;
+    }
+    .top span{
+       font-size: 12px;
+       color: rgb(116, 115, 115);
+    }
+    .middle{
+        color: gray;
+    }
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 10px;
+        margin-top: 3px;
+        margin-bottom: 20px;
+        color: rgb(55, 53, 53);
+    }
+    .bottom img{
+        border: 0;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+        margin-left: 10px;
+    }
+    .bottom span{
+        font-size: 14px;
+    }
+    .bottom p{
+        font-size: 14px;
+        margin-left: 10px;
+    }
